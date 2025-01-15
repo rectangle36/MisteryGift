@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Gift Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+    #gift-box {
+      width: 150px;
+      height: 150px;
+      background: url('https://www.jumbogiftbox.com/wp-content/uploads/2022/09/buy-big-gift-box-290x300.png') no-repeat center/cover;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease-in-out;
+    }
+    #gift-box.shake {
+      animation: shake 0.5s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-10deg); }
+    }
+    #quote-box {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="gift-box" title="Tap me!"></div>
+  <div id="quote-box">"Surprise! Here's your motivational quote: 'The best time to plant a tree was 20 years ago. The second-best time is now.'"</div>
+
+  <script>
+    let tapCount = 0;
+    const giftBox = document.getElementById('gift-box');
+    const quoteBox = document.getElementById('quote-box');
+
+    giftBox.addEventListener('click', () => {
+      tapCount++;
+      giftBox.classList.add('shake');
+      setTimeout(() => giftBox.classList.remove('shake'), 500);
+
+      if (tapCount === 5) {
+        giftBox.style.display = 'none';
+        quoteBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

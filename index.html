@@ -17,7 +17,7 @@
     #gift-box {
       width: 150px;
       height: 150px;
-      background: url('https://www.jumbogiftbox.com/wp-content/uploads/2022/09/buy-big-gift-box-290x300.png') no-repeat center/cover;
+      background: url('https://www.jumbogiftbox.com/wp-content/uploads/2022/09/buy-big-gift-box-290x300.png') no-repeat center/contain;
       cursor: pointer;
       position: relative;
       transition: transform 0.2s ease-in-out;
@@ -31,25 +31,24 @@
       50% { transform: rotate(10deg); }
       75% { transform: rotate(-10deg); }
     }
-    #quote-box {
+    #video-box {
       display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      width: 80%;
+      height: auto;
     }
   </style>
 </head>
 <body>
   <div id="gift-box" title="Tap me!"></div>
-  <div id="quote-box">"Surprise! Here's your motivational quote: 'The best time to plant a tree was 20 years ago. The second-best time is now.'"</div>
+  <video id="video-box" controls autoplay>
+    <source src="./eye of ra property in egypt chopped chin #memes - ye (720p, h264).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
   <script>
     let tapCount = 0;
     const giftBox = document.getElementById('gift-box');
-    const quoteBox = document.getElementById('quote-box');
+    const videoBox = document.getElementById('video-box');
 
     giftBox.addEventListener('click', () => {
       tapCount++;
@@ -58,7 +57,7 @@
 
       if (tapCount === 5) {
         giftBox.style.display = 'none';
-        quoteBox.style.display = 'block';
+        videoBox.style.display = 'block';
       }
     });
   </script>

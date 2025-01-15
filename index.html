@@ -40,7 +40,7 @@
 </head>
 <body>
   <div id="gift-box" title="Tap me!"></div>
-  <video id="video-box" controls autoplay>
+  <video id="video-box" autoplay>
     <source src="./cat spinning then explodes - Memius (720p, h264).mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -56,8 +56,9 @@
       setTimeout(() => giftBox.classList.remove('shake'), 500);
 
       if (tapCount === 5) {
-        giftBox.style.display = 'none';
-        videoBox.style.display = 'block';
+        giftBox.style.display = 'none'; // Hide the gift box
+        videoBox.style.display = 'block'; // Show the video
+        videoBox.play(); // Start playing the video
       }
     });
   </script>
